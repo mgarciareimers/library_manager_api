@@ -1,0 +1,23 @@
+{
+  "name": "library_manager_api",
+  "version": "1.0.0",
+  "description": "Basic library management api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgarciareimers/library_manager_api.git"
+  },
+  "author": "mgarciareimers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgarciareimers/library_manager_api/issues"
+  },
+  "homepage": "https://github.com/mgarciareimers/library_manager_api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
