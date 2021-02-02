@@ -1,0 +1,40 @@
+21:06:18 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:06:59 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:07:23 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:07:32 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:07:40 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:08:47 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:09:06 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:49:26 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:49:50 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+21:50:21 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+22:01:25 - ValidationError: username: user_username_required, hashedPassword: user_password_required 
+22:12:41 - user_surname_required 
+22:15:10 - 1 
+22:15:54 - undefined 
+22:16:31 - undefined 
+22:17:15 - Se ha producido un error en el servidor. Por favor, vuelve a intentarlo. 
+22:17:25 - user_surname_required 
+22:18:51 - user_surname_required 
+22:19:23 - user_surname_required 
+22:19:51 - user_surname_required 
+22:19:57 - user_surname_required 
+22:20:04 - user_surname_required 
+22:20:56 - user_surname_required 
+22:21:13 - user_surname_required 
+22:21:21 - user_surname_required 
+22:22:04 - user_surname_required 
+22:22:58 - undefined 
+22:24:44 - undefined 
+22:25:24 - undefined 
+22:26:21 - undefined 
+22:29:40 - user_surname_required 
+22:29:47 - user_surname_required 
+22:30:11 - user_username_required 
+22:30:32 - user_password_required 
+22:30:57 - `bli` is not a valid enum value for path `role`. 
+22:31:08 - `bli` is not a valid enum value for path `role`. 
+22:31:35 - user_surname_required 
+22:32:47 - `bli` is not a valid enum value for path `role`. 
+22:36:02 - user_role_not_valid 
+22:37:17 - user_state_not_valid 

@@ -1,0 +1,18 @@
+{
+    "generic_error" : "Se ha producido un error en el servidor. Por favor, vuelve a intentarlo.",
+    "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
+
+    "success_create_user" : "Se ha ha creado el usuario con éxito. Recibirá próximamente un email para confirmar su cuenta.",
+    "success_sign_up" : "Tu cuenta ha sido creada con éxito. Recibirás en breve un email para confirmar tu cuenta.",
+    "success_update_user" : "Los datos de la cuenta han sido actualizados con éxito.",
+    
+    "user_email_exists" : "Ya existe un usuario con este email.",
+    "user_email_required" : "Es necesario añadir el email.",
+    "user_google_format_not_valid" : "El formato del campo google del usuario no es válido.",
+    "user_name_required" : "Es necesario añadir el nombre.",
+    "user_not_found" : "El usuario especificado no existe.",
+    "user_password_required" : "Es necesario añadir la contraseña.",
+    "user_role_not_valid" : "El rol del usuario no es válido.",
+    "user_state_not_valid" : "El estado del usuario no es válido.",
+    "user_surname_required" : "Es necesario añadir al menos un apellido."
+}
