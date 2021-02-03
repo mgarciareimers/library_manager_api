@@ -5,7 +5,6 @@
 * Description: Method that updates a user.
 */
 
-const bcrypt = require('bcrypt');
 const _ = require('underscore');
 const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');

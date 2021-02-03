@@ -20,5 +20,8 @@ app.put('/v1/users/:id', (req, res) => usersService.updateUser(req, res));
 app.get('/v1/users/:id', (req, res) => usersService.getUserById(req, res));
 app.get('/v1/users', (req, res) => usersService.getUsers(req, res));
 
+// DELETE requests.
+app.delete('/v1/users/:id', (req, res) => usersService.deleteUserById(req, res));
+app.delete('/v1/users/suspendaccount/:id', (req, res) => usersService.suspendAccountById(req, res));
 
 module.exports = app;

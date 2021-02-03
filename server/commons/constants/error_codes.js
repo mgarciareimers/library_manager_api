@@ -6,6 +6,7 @@
 */
 module.exports = {
     GENERIC_ERROR: 'generic_error',
+    GENERIC_ERROR_DELETE_USER_BY_ID: 'generic_error_delete_user_by_id',
     GENERIC_ERROR_FIND_USER: 'generic_error_find_user',
     GENERIC_ERROR_GET_USER_BY_ID: 'generic_error_get_user_by_id',
     GENERIC_ERROR_GET_USERS: 'generic_error_get_users',

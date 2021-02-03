@@ -5,8 +5,6 @@
 * Description: Method that gets a user by its id.
 */
 
-const bcrypt = require('bcrypt');
-const _ = require('underscore');
 const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');
 const language = require('../../language');
