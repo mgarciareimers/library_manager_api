@@ -10,7 +10,7 @@ const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');
 const language = require('../../language');
 
-const User = require('../../models/user')
+const User = require('../../models/user');
 
 const createUser = (req, res) => {
     const { body } = req;

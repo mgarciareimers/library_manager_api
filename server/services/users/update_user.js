@@ -11,7 +11,7 @@ const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');
 const language = require('../../language');
 
-const User = require('../../models/user')
+const User = require('../../models/user');
 
 const updateUser = async (req, res) => {
     const body = _.pick(req.body, [ 'name', 'surname', 'email', 'role', 'state' ]);
@@ -35,7 +35,7 @@ const updateUser = async (req, res) => {
         const errorCode = updatePromise.error.errors === undefined || updatePromise.error.errors === null || updatePromise.error.errors[Object.keys(updatePromise.error.errors)[0]].properties === undefined || updatePromise.error.errors[Object.keys(updatePromise.error.errors)[0]].properties === null ? null : updatePromise.error.errors[Object.keys(updatePromise.error.errors)[0]].properties.message;
         utils.logError(errorCode);
         return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), user: null });
-   } 
+    } 
    
    return res.status(200).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_UPDATE_USER), user: updatePromise.userDB });
 }

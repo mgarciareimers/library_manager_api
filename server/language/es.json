@@ -1,6 +1,8 @@
 {
     "generic_error" : "Se ha producido un error en el servidor. Por favor, vuelve a intentarlo.",
     "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
+    "generic_error_get_user_by_id" : "Se ha producido un error al recuperar el usuario. Por favor, vuelve a intentarlo.",
+    "generic_error_get_users" : "Se ha producido un error al recuperar el listado de usuarios. Por favor, vuelve a intentarlo.",
 
     "success_create_user" : "Se ha ha creado el usuario con éxito. Recibirá próximamente un email para confirmar su cuenta.",
     "success_sign_up" : "Tu cuenta ha sido creada con éxito. Recibirás en breve un email para confirmar tu cuenta.",
