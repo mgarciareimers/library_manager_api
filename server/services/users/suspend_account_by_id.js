@@ -15,6 +15,11 @@ const suspendAccountById = async (req, res) => {
     const { id } = req.params;
     const languageCode = req.headers.language;
 
+    // Check if user is authorized (admin or own user);
+    if (id !== req.user._id && req.user.role !== constants.strings.ROLE_ADMIN) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_AUTHORIZED) });
+    }
+
     User.findByIdAndUpdate(id, { state: constants.strings.STATE_DELETED }, { new: true, runValidators: true }, (error, userDB) => {
         if (error !== undefined && error !== null) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_DELETE_USER_BY_ID : error.errors[Object.keys(error.errors)[0]].properties.message;

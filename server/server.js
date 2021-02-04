@@ -4,22 +4,21 @@
 * 
 * Description: Main script.
 */
-require('./config/config');
 
+require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
-
 const utils = require('./commons/utils');
 
 const app = express();
 
 app.use(express.json());
  
-// Define routes.
-app.use(require('./routes/v1/users'));
+// Routes config.
+app.use(require('./routes'));
 
 // Database connection.
-mongoose.connect('mongodb://localhost:27017/library_manager', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }, (error, res) => {
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }, (error, res) => {
   if (error) {
     utils.logError(error);
     throw error;

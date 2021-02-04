@@ -1,9 +1,14 @@
 {
+    "account_deleted_not_authorized" : "Esta cuenta ha sido eliminada previamente. Si quieres recuperarla, contáctanos a través de nuestro email.",
+    "account_not_verified" : "Esta cuenta no ha sido verificada. Para ello, pulsa en el link de confirmación que recibiste en el email al crearte la cuenta.",
+
     "generic_error" : "Se ha producido un error en el servidor. Por favor, vuelve a intentarlo.",
     "generic_error_delete_user_by_id" : "Se ha producido un error al eliminar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_user_by_id" : "Se ha producido un error al recuperar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_users" : "Se ha producido un error al recuperar el listado de usuarios. Por favor, vuelve a intentarlo.",
+
+    "invalid_credentials" : "El email o la contraseña no son válidos.",
 
     "success_create_user" : "Se ha creado el usuario con éxito. Recibirá próximamente un email para confirmar su cuenta.",
     "success_delete_user_by_id" : "Se ha eliminado el usuario con éxito de la base de datos.",
@@ -15,6 +20,8 @@
     "user_email_required" : "Es necesario añadir el email.",
     "user_google_format_not_valid" : "El formato del campo google del usuario no es válido.",
     "user_name_required" : "Es necesario añadir el nombre.",
+    "user_not_authorized" : "No estás autorizado para realizar esta operación.",
+    "user_not_authorized_credentials" : "No estás autorizado para realizar esta operación. Por favor, inicia sesión con tus credenciales.",
     "user_not_found" : "El usuario especificado no existe.",
     "user_password_required" : "Es necesario añadir la contraseña.",
     "user_role_not_valid" : "El rol del usuario no es válido.",

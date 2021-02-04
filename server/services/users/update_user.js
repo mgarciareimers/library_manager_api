@@ -16,6 +16,11 @@ const updateUser = async (req, res) => {
     const body = _.pick(req.body, [ 'name', 'surname', 'email', 'role', 'state' ]);
     const { id } = req.params;
     const languageCode = req.headers.language;
+
+    // Check if user is authorized (admin or own user);
+    if (id !== req.user._id && req.user.role !== constants.strings.ROLE_ADMIN) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_AUTHORIZED) });
+    }
     
     // Check if user exists in database.
     const findPromise = await new Promise(resolve => User.findById(id, (error, userDB) => resolve({ error: error, userDB: userDB })));

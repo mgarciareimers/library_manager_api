@@ -12,6 +12,7 @@ module.exports = {
     STATE_OK : 'ok',
     STATE_DELETED : 'deleted',
     
+    DEV: 'dev',
     EMPTY_STRING: '',
     ZERO : '0',
 }
