@@ -7,6 +7,8 @@
     "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_user_by_id" : "Se ha producido un error al recuperar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_users" : "Se ha producido un error al recuperar el listado de usuarios. Por favor, vuelve a intentarlo.",
+    "google_user_normal_exists" : "No es posible iniciar sesión en tu cuenta a través de Google. Para entrar en la aplicación, introduce las credenciales (email y contraseña) que utilizaste al crear la cuenta.",
+    "google_user_not_valid" : "El usuario de Google no es válido. Por favor, inicia sesión con tu cuenta de Google para continuar.",
 
     "invalid_credentials" : "El email o la contraseña no son válidos.",
 

@@ -6,8 +6,10 @@
 */
 
 // POST requests.
+const googleSignIn = require('./google_sign_in');
 const login = require('./login');
 
 module.exports = {
+    googleSignIn,
     login,
 }

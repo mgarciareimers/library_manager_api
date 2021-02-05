@@ -11,6 +11,7 @@ const app = express();
 const authService = require('../../services/auth');
 
 // POST requests.
+app.post('/api/v1/googlesignin', (req, res) => authService.googleSignIn(req, res));
 app.post('/api/v1/login', (req, res) => authService.login(req, res));
 
 module.exports = app;

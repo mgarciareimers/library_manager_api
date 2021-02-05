@@ -23,11 +23,11 @@ const createUser = (req, res) => {
     
     const user = new User({
         name: body.name, 
-        surname: body.surname, 
-        username: body.username, 
+        surname: body.surname,  
         email: body.email, 
         hashedPassword: bcrypt.hashSync(utils.generateRandomString(constants.numbers.RANDOM_PASSWORD_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
-        role: body.role, 
+        role: body.role,
+        language: languageCode, 
         google: body.google, 
         state: body.state, 
     });

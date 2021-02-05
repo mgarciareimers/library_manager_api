@@ -13,6 +13,8 @@ module.exports = {
     GENERIC_ERROR_FIND_USER: 'generic_error_find_user',
     GENERIC_ERROR_GET_USER_BY_ID: 'generic_error_get_user_by_id',
     GENERIC_ERROR_GET_USERS: 'generic_error_get_users',
+    GOOGLE_USER_NORMAL_EXISTS: 'google_user_normal_exists',
+    GOOGLE_USER_NOT_VALID: 'google_user_not_valid',
 
     INVALID_CREDENTIALS: 'invalid_credentials',
 

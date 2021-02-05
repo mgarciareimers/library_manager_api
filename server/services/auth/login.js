@@ -26,6 +26,10 @@ const login = async (req, res) => {
         return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_FIND_USER), token: null });
     } else if (findPromise.userDB === null) {
         return res.status(400).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.INVALID_CREDENTIALS), token: null });
+    } else if (findPromise.userDB.state === constants.strings.STATE_PENDING) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.ACCOUNT_NOT_VERIFIED) });
+    } else if (findPromise.userDB.state === constants.strings.STATE_DELETED) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.ACCOUNT_DELETED_NOT_AUTHORIZED) });
     }
 
     // Validate password.

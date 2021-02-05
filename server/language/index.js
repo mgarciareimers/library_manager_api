@@ -32,4 +32,6 @@ const getValue = (language, key) => {
 
 module.exports = {
     getValue,
+    EN,
+    ES,
 }

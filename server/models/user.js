@@ -11,6 +11,7 @@ const Schema = mongoose.Schema;
 const uniqueValidator = require('mongoose-unique-validator');
 
 const constants = require('../commons/constants');
+const language = require('../language');
 
 // Define schema.
 const userSchema = new Schema({
@@ -42,6 +43,10 @@ const userSchema = new Schema({
     image: {
         type: String,
         default: null,
+    },
+    language: {
+        type: String,
+        default: language.ES,
     },
     google: {
         type: Boolean,

@@ -8,6 +8,8 @@
 require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
+
 const utils = require('./commons/utils');
 
 const app = express();
@@ -24,5 +26,8 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
     throw error;
   }
 });
+
+// Enable public folder (only for testing).
+app.use(express.static(path.resolve(__dirname, '../public')));
  
 app.listen(process.env.PORT, () => console.log('Listening port:', process.env.PORT));
