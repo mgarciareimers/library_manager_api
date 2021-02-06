@@ -13,6 +13,7 @@ module.exports = {
     ACCOUNT_VERIFICATION_TITLE_GENERAL_ERROR: 'account_verification_title_general_error',
 
     GENERIC_ERROR: 'generic_error',
+    GENERIC_ERROR_CREATE_ACCOUNT: 'generic_error_create_account',
     GENERIC_ERROR_DELETE_USER_BY_ID: 'generic_error_delete_user_by_id',
     GENERIC_ERROR_FIND_USER: 'generic_error_find_user',
     GENERIC_ERROR_GET_USER_BY_ID: 'generic_error_get_user_by_id',

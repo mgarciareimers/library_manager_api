@@ -15,4 +15,6 @@ module.exports = {
     SUCCESS_SUSPEND_ACCOUNT_BY_ID: 'success_suspend_account_by_id',
     SUCCESS_UPDATE_PASSWORD: 'success_update_password',
     SUCCESS_UPDATE_USER: 'success_update_user',
+
+    WELCOME_SUBJECT: 'welcome_subject',
 }

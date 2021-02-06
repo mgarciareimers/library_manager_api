@@ -14,5 +14,7 @@ module.exports = {
     
     DEV: 'dev',
     EMPTY_STRING: '',
+    HYPHEN: '_',
+    SLASH: '/',
     ZERO : '0',
 }

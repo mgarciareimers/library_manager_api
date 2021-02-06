@@ -14,6 +14,7 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');
 const language = require('../../language');
+const mailer = require('../../commons/mailer');
 
 const User = require('../../models/user');
 
@@ -58,19 +59,25 @@ const googleSignIn = async (req, res) => {
         image: googleUser.image,
         language: languageCode, 
         google: googleUser.google,
-        verificationToken: bcrypt.hashSync(body.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
+        verificationToken: bcrypt.hashSync(googleUser.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS).replace(constants.strings.SLASH, constants.strings.EMPTY_STRING),
     });
 
-    user.save((error, userDB) => {
-       if (error) {
+    user.save(async (error, userDB) => {
+        if (error) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? null : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
             return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
-       } 
+        } 
 
-       // TODO - Send email.
+        // Send email.
+        const emailContent = mailer.getWelcomeGoogleEmailContent(languageCode, userDB.name, userDB.verificationToken);
 
-       return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_CREATE_USER) });
+        if (!await mailer.sendEmail(mailer.NO_REPLY_MAIL, userDB.email, language.getValue(languageCode, constants.stringCodes.WELCOME_SUBJECT), emailContent.html, emailContent.plainText)) {
+            await User.deleteOne({ email: userDB.email });
+            return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_CREATE_ACCOUNT), user: null }); 
+        }
+
+        return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_CREATE_USER) });
     });
 }
 

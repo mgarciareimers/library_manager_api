@@ -7,6 +7,7 @@
     "account_verification_title_general_error" : "Error de verificación",
 
     "generic_error" : "Se ha producido un error en el servidor. Por favor, vuelve a intentarlo.",
+    "generic_error_create_account" : "Se ha producido un error al crear la cuenta. Por favor, vuelve a intentarlo.",
     "generic_error_delete_user_by_id" : "Se ha producido un error al eliminar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_user_by_id" : "Se ha producido un error al recuperar el usuario. Por favor, vuelve a intentarlo.",
@@ -40,5 +41,7 @@
     "user_password_required" : "Es necesario añadir una contraseña de al menos {||replace_string_code||} caracteres.",
     "user_role_not_valid" : "El rol del usuario no es válido.",
     "user_state_not_valid" : "El estado del usuario no es válido.",
-    "user_surname_required" : "Es necesario añadir al menos un apellido."
+    "user_surname_required" : "Es necesario añadir al menos un apellido.",
+
+    "welcome_subject" : "Library Manager - Bienvenid@"
 }

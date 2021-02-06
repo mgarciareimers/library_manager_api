@@ -26,7 +26,4 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
   }
 });
 
-// Enable public folder (only for testing).
-// app.use(express.static(path.resolve(__dirname, '../public')));
- 
 app.listen(process.env.PORT, () => console.log('Listening port:', process.env.PORT));
