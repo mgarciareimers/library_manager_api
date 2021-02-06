@@ -16,6 +16,7 @@ const updateUser = require('./update_user');
 // GET requests.
 const getUserById = require('./get_user_by_id');
 const getUsers = require('./get_users');
+const verifyAccount = require('./verify_account');
 
 // DELETE requests.
 const deleteUserById = require('./delete_user_by_id');
@@ -30,6 +31,7 @@ module.exports = {
 
     getUserById,
     getUsers,
+    verifyAccount,
 
     deleteUserById,
     suspendAccountById,

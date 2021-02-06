@@ -5,9 +5,12 @@
 * Description: Error codes.
 */
 module.exports = {
+    ACCOUNT_ALREADY_VERIFIED: 'account_already_verified',
     ACCOUNT_DELETED_NOT_AUTHORIZED: 'account_deleted_not_authorized',
     ACCOUNT_GOOGLE_LOGIN_NOT_AUTHORIZED: 'account_google_login_not_authorized',
     ACCOUNT_NOT_VERIFIED: 'account_not_verified',
+    ACCOUNT_VERIFICATION_TEXT_GENERAL_ERROR: 'account_verification_text_general_error',
+    ACCOUNT_VERIFICATION_TITLE_GENERAL_ERROR: 'account_verification_title_general_error',
 
     GENERIC_ERROR: 'generic_error',
     GENERIC_ERROR_DELETE_USER_BY_ID: 'generic_error_delete_user_by_id',

@@ -22,6 +22,7 @@ app.put('/api/v1/users/:id', verifyToken, (req, res) => usersService.updateUser(
 // GET requests.
 app.get('/api/v1/users/:id', verifyToken, (req, res) => usersService.getUserById(req, res));
 app.get('/api/v1/users', verifyToken, (req, res) => usersService.getUsers(req, res));
+app.get('/api/v1/verifyaccount/:verificationToken/:language', (req, res) => usersService.verifyAccount(req, res));
 
 // DELETE requests.
 app.delete('/api/v1/users/:id', [ verifyToken, verifyAdminRole ], (req, res) => usersService.deleteUserById(req, res));

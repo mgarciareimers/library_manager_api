@@ -68,6 +68,8 @@ const googleSignIn = async (req, res) => {
             return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
        } 
 
+       // TODO - Send email.
+
        return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_CREATE_USER) });
     });
 }
