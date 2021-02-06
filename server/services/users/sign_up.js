@@ -16,6 +16,10 @@ const User = require('../../models/user');
 const signUp = (req, res) => {
     const { body } = req;
     const languageCode = req.headers.language;
+
+    if (body.password === undefined || body.password === null || body.password.length < constants.numbers.PASSWORD_MIN_LENGTH) {
+        return res.status(400).json({ success: false, message: language.getValue(constants.errorCodes.USER_PASSWORD_REQUIRED, errorCode).replace(constants.stringCodes.REPLACE_STRING_CODE, constants.numbers.PASSWORD_MIN_LENGTH) });
+    }
     
     const user = new User({
         name: body.name, 
@@ -24,7 +28,8 @@ const signUp = (req, res) => {
         hashedPassword: bcrypt.hashSync(body.password, constants.numbers.HASH_SALT_OR_ROUNDS), 
         role: constants.strings.ROLE_USER, 
         language: languageCode,
-        google: body.google, 
+        google: false, 
+        verificationToken: bcrypt.hashSync(body.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS),
         state: body.state, 
     });
 
@@ -34,6 +39,8 @@ const signUp = (req, res) => {
             utils.logError(errorCode);
             return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
        } 
+
+       // TODO - Send email.
 
        return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_SIGN_UP) });
     });

@@ -52,6 +52,10 @@ const userSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    verificationToken: {
+        type: String,
+        required: [true, constants.errorCodes.GENERIC_ERROR],
+    },
     state: {
         type: String,
         enum: {

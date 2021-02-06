@@ -29,6 +29,7 @@ const createUser = (req, res) => {
         role: body.role,
         language: languageCode, 
         google: body.google, 
+        verificationToken: bcrypt.hashSync(body.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS),
         state: body.state, 
     });
 
@@ -38,6 +39,8 @@ const createUser = (req, res) => {
             utils.logError(errorCode);
             return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), user: null });
        } 
+
+       // TODO - Send email.
 
        return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_CREATE_USER), user: userDB });
     });

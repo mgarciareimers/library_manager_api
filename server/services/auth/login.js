@@ -30,6 +30,8 @@ const login = async (req, res) => {
         return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.ACCOUNT_NOT_VERIFIED) });
     } else if (findPromise.userDB.state === constants.strings.STATE_DELETED) {
         return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.ACCOUNT_DELETED_NOT_AUTHORIZED) });
+    } else if (findPromise.userDB.google) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.ACCOUNT_GOOGLE_LOGIN_NOT_AUTHORIZED) });
     }
 
     // Validate password.

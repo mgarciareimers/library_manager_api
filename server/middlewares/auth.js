@@ -25,7 +25,7 @@ const verifyToken = (req, res, next) => {
         
         // Check if user exists in database.
         const findPromise = await new Promise(resolve => User.findById(decoded.user._id, (error, userDB) => resolve({ error: error, userDB: userDB })));
-
+        
         if (findPromise.error !== undefined && findPromise.error !== null || findPromise.userDB === undefined || findPromise.userDB === null) {
             return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_AUTHORIZED_CREDENTIALS) });
         } else if (findPromise.userDB.state === constants.strings.STATE_PENDING) {

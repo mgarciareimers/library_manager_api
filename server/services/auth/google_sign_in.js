@@ -57,7 +57,8 @@ const googleSignIn = async (req, res) => {
         hashedPassword: bcrypt.hashSync(utils.generateRandomString(constants.numbers.RANDOM_PASSWORD_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
         image: googleUser.image,
         language: languageCode, 
-        google: googleUser.google, 
+        google: googleUser.google,
+        verificationToken: bcrypt.hashSync(body.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
     });
 
     user.save((error, userDB) => {

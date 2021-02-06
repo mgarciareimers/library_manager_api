@@ -10,6 +10,7 @@ const createUser = require('./create_user');
 const signUp = require('./sign_up');
 
 // PUT requests.
+const changePassword = require('./change_password');
 const updateUser = require('./update_user');
 
 // GET requests.
@@ -24,6 +25,7 @@ module.exports = {
     createUser,
     signUp,
 
+    changePassword,
     updateUser,
 
     getUserById,
