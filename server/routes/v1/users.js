@@ -17,6 +17,7 @@ app.post('/api/v1/signup', (req, res) => usersService.signUp(req, res));
 
 // PUT requests.
 app.put('/api/v1/users/changepassword', verifyToken, (req, res) => usersService.changePassword(req, res));
+app.put('/api/v1/users/forgotpassword', (req, res) => usersService.forgotPassword(req, res));
 app.put('/api/v1/users/:id', verifyToken, (req, res) => usersService.updateUser(req, res));
 
 // GET requests.

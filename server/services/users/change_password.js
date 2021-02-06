@@ -12,7 +12,7 @@ const language = require('../../language');
 
 const User = require('../../models/user');
 
-const suspendAccountById = async (req, res) => {
+const changePassword = async (req, res) => {
     const languageCode = req.headers.language;
     const { oldPassword, newPassword } = req.body;
 
@@ -42,11 +42,11 @@ const suspendAccountById = async (req, res) => {
     // Update password.
     const hashedNewPassword = bcrypt.hashSync(newPassword, constants.numbers.HASH_SALT_OR_ROUNDS);
 
-    User.findByIdAndUpdate(req.user._id, { hashedNewPassword: hashedNewPassword }, { new: true, runValidators: true }, (error, userDB) => {
+    User.findByIdAndUpdate(req.user._id, { hashedPassword: hashedNewPassword }, { new: true, runValidators: true }, (error, userDB) => {
         if (error !== undefined && error !== null) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_UPDATE_PASSWORD : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
-            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_DELETE_USER_BY_ID ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
+            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_UPDATE_PASSWORD ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
         } else if (userDB === undefined || userDB === null) {
             return res.status(404).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_FOUND) });
         }
@@ -55,4 +55,4 @@ const suspendAccountById = async (req, res) => {
     });
 }
 
-module.exports = suspendAccountById;
+module.exports = changePassword;

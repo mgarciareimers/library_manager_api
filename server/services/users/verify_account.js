@@ -11,7 +11,7 @@ const language = require('../../language');
 
 const User = require('../../models/user');
 
-const suspendAccountById = async (req, res) => {
+const verifyAccount = async (req, res) => {
     const languageCode = req.params.language;
     const { verificationToken } = req.params;
 
@@ -43,4 +43,4 @@ const suspendAccountById = async (req, res) => {
     });
 }
 
-module.exports = suspendAccountById;
+module.exports = verifyAccount;

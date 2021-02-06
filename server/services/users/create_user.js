@@ -21,12 +21,14 @@ const createUser = (req, res) => {
         utils.logError(constants.errorCodes.USER_GOOGLE_FORMAT_NOT_VALID);
         return res.status(400).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_GOOGLE_FORMAT_NOT_VALID), user: null });
     }
+
+    const password = utils.generateRandomString(constants.numbers.RANDOM_PASSWORD_LENGTH);
     
     const user = new User({
         name: body.name, 
         surname: body.surname,  
         email: body.email, 
-        hashedPassword: bcrypt.hashSync(utils.generateRandomString(constants.numbers.RANDOM_PASSWORD_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
+        hashedPassword: bcrypt.hashSync(password, constants.numbers.HASH_SALT_OR_ROUNDS), 
         role: body.role,
         language: languageCode, 
         google: false, 
@@ -42,7 +44,7 @@ const createUser = (req, res) => {
         } 
 
         // Send email.
-        const emailContent = mailer.getWelcomeAdminCreatedEmailContent(languageCode, userDB.name, userDB.verificationToken);
+        const emailContent = mailer.getWelcomeAdminCreatedEmailContent(languageCode, userDB.name, password, userDB.verificationToken);
 
         if (!await mailer.sendEmail(mailer.NO_REPLY_MAIL, userDB.email, language.getValue(languageCode, constants.stringCodes.WELCOME_SUBJECT), emailContent.html, emailContent.plainText)) {
            await User.deleteOne({ email: userDB.email });

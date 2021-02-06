@@ -6,13 +6,17 @@
     "account_verification_text_general_error" : "Se ha producido un error al verificar la cuenta.",
     "account_verification_title_general_error" : "Error de verificación",
 
+    "forgot_password_subject" : "Library Manager - Contraseña Olvidada",
+
     "generic_error" : "Se ha producido un error en el servidor. Por favor, vuelve a intentarlo.",
     "generic_error_create_account" : "Se ha producido un error al crear la cuenta. Por favor, vuelve a intentarlo.",
     "generic_error_delete_user_by_id" : "Se ha producido un error al eliminar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_find_user" : "Se ha producido un error al buscar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_user_by_id" : "Se ha producido un error al recuperar el usuario. Por favor, vuelve a intentarlo.",
     "generic_error_get_users" : "Se ha producido un error al recuperar el listado de usuarios. Por favor, vuelve a intentarlo.",
+    "generic_error_reset_password" : "Se ha producido un error al resetear tu contraseña. Por favor, vuelve a intentarlo.",
     "generic_error_update_password" : "Se ha producido un error al actualizar tu contraseña. Por favor, vuelve a intentarlo.",
+    "generic_error_update_user" : "Se ha producido un error al actualizar la cuenta. Por favor, vuelve a intentarlo.",
     "google_user_normal_exists" : "No es posible iniciar sesión en tu cuenta a través de Google. Para entrar en la aplicación, introduce las credenciales (email y contraseña) que utilizaste al crear la cuenta.",
     "google_user_not_valid" : "El usuario de Google no es válido. Por favor, inicia sesión con tu cuenta de Google para continuar.",
 
@@ -26,6 +30,7 @@
     "success_account_verified_title" : "Cuenta Verificada",
     "success_create_user" : "Se ha creado el usuario con éxito. Recibirá próximamente un email para confirmar su cuenta.",
     "success_delete_user_by_id" : "Se ha eliminado el usuario con éxito de la base de datos.",
+    "success_forgot_password" : "La contraseña de tu cuenta ha sido reseteada. La recibirás próximamente en tu email.",
     "success_sign_up" : "Tu cuenta ha sido creada con éxito. Recibirás en breve un email para confirmar tu cuenta.",
     "success_suspend_account_by_id" : "Se ha eliminado la cuenta con éxito.",
     "success_update_password" : "La contraseña ha sido actualizada con éxito.",

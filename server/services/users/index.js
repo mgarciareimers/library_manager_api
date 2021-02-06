@@ -11,6 +11,7 @@ const signUp = require('./sign_up');
 
 // PUT requests.
 const changePassword = require('./change_password');
+const forgotPassword = require('./forgot_password');
 const updateUser = require('./update_user');
 
 // GET requests.
@@ -27,6 +28,7 @@ module.exports = {
     signUp,
 
     changePassword,
+    forgotPassword,
     updateUser,
 
     getUserById,

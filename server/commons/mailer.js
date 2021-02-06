@@ -48,13 +48,15 @@ const getWelcomeCredentialsEmailContent = (languageCode, name, verificationToken
 }
 
 // Method that gets a welcome email (admin created) content.
-const getWelcomeAdminCreatedEmailContent = (languageCode, name, verificationToken) => {
+const getWelcomeAdminCreatedEmailContent = (languageCode, name, password, verificationToken) => {
     const html = `
         <a target='blank' href='${ process.env.BACKEND_URL }/api/v1/verifyaccount/${ verificationToken }/${ languageCode }'>Link</a>
+        <br>
+        <p>Pass: ${ password } </p>
     `;
 
     const plainText = `
-        Link
+        Link, password
     `;
 
     return { html: html, plainText: plainText };
@@ -73,7 +75,22 @@ const getWelcomeGoogleEmailContent = (languageCode, name, verificationToken) => 
     return { html: html, plainText: plainText };
 }
 
+// Method that gets a forgot password email content.
+const getForgotPasswordEmailContent = (languageCode, name, password) => {
+    const html = `
+        Name: ${ name }
+        Pass: ${ password }
+    `;
+
+    const plainText = `
+        name, password
+    `;
+
+    return { html: html, plainText: plainText };
+}
+
 module.exports = {
+    getForgotPasswordEmailContent,
     getWelcomeAdminCreatedEmailContent,
     getWelcomeCredentialsEmailContent,
     getWelcomeGoogleEmailContent,

@@ -18,7 +18,9 @@ module.exports = {
     GENERIC_ERROR_FIND_USER: 'generic_error_find_user',
     GENERIC_ERROR_GET_USER_BY_ID: 'generic_error_get_user_by_id',
     GENERIC_ERROR_GET_USERS: 'generic_error_get_users',
+    GENERIC_ERROR_RESET_PASSWORD: 'generic_error_reset_password',
     GENERIC_ERROR_UPDATE_PASSWORD: 'generic_error_update_password',
+    GENERIC_ERROR_UPDATE_USER: 'generic_error_update_user',
     GOOGLE_USER_NORMAL_EXISTS: 'google_user_normal_exists',
     GOOGLE_USER_NOT_VALID: 'google_user_not_valid',
 
