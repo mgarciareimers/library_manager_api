@@ -25,7 +25,7 @@ const getAuthors = async (req, res) => {
     }; 
 
     // Get list of authors.
-    Author.find(filterObject).limit(limit).skip((pageNumber - 1) * limit).exec((error, auhorsDB) => {
+    Author.find(filterObject).sort('name').limit(limit).skip((pageNumber - 1) * limit).exec((error, auhorsDB) => {
         if (error) {
             utils.logError(constants.errorCodes.GENERIC_ERROR_GET_AUTHORS);
             return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_AUTHORS), authors: null });

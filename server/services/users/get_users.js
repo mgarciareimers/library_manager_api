@@ -24,7 +24,7 @@ const getUsers = async (req, res) => {
     }; 
 
     // Get list of users.
-    User.find(filterObject).limit(limit).skip((pageNumber - 1) * limit).exec((error, usersDB) => {
+    User.find(filterObject).sort('name').limit(limit).skip((pageNumber - 1) * limit).exec((error, usersDB) => {
         if (error) {
             utils.logError(constants.errorCodes.GENERIC_ERROR_GET_USERS);
             return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_USERS), users: null });
