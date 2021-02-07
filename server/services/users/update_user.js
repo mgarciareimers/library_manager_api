@@ -13,13 +13,17 @@ const language = require('../../language');
 const User = require('../../models/user');
 
 const updateUser = async (req, res) => {
-    const body = _.pick(req.body, [ 'name', 'surname', 'email', 'role', 'state' ]);
+    const body = _.pick(req.body, [ 'name', 'surname', 'email', 'role' ]);
     const { id } = req.params;
     const languageCode = req.headers.language;
 
     // Check if user is authorized (admin or own user);
     if (id !== req.user._id && req.user.role !== constants.strings.ROLE_ADMIN) {
         return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_AUTHORIZED) });
+    }
+
+    if (body.email !== undefined && body.email !== null) {
+        body.email = body.email.toLowerCase();
     }
     
     // Check if user exists in database.

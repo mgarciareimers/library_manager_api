@@ -27,7 +27,7 @@ const createUser = (req, res) => {
     const user = new User({
         name: body.name, 
         surname: body.surname,  
-        email: body.email, 
+        email: body.email.toLowerCase(), 
         hashedPassword: bcrypt.hashSync(password, constants.numbers.HASH_SALT_OR_ROUNDS), 
         role: body.role,
         language: languageCode, 
@@ -40,7 +40,7 @@ const createUser = (req, res) => {
         if (error) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_CREATE_ACCOUNT : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
-            return res.status(errorCode === undefined || errorCode === null ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), user: null });
+            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_CREATE_ACCOUNT ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), user: null });
         } 
 
         // Send email.

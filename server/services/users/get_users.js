@@ -19,21 +19,21 @@ const getUsers = async (req, res) => {
     const { email, state } = req.query;
 
     const filterObject = { 
-        email: new RegExp(email === undefined || email === null ? constants.strings.EMPTY_STRING : email ), 
-        state: new RegExp(state === undefined || state === null ? constants.strings.EMPTY_STRING : state ), 
+        email: new RegExp(email === undefined || email === null ? constants.strings.EMPTY_STRING : email, 'i'), 
+        state: new RegExp(state === undefined || state === null ? constants.strings.EMPTY_STRING : state, 'i'), 
     }; 
 
     // Get list of users.
     User.find(filterObject).limit(limit).skip((pageNumber - 1) * limit).exec((error, usersDB) => {
         if (error) {
             utils.logError(constants.errorCodes.GENERIC_ERROR_GET_USERS);
-            return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_USERS), user: null });
+            return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_USERS), users: null });
         } 
 
         User.countDocuments(filterObject, (error, total) => {
             if (error) {
                 utils.logError(constants.errorCodes.GENERIC_ERROR_GET_USERS);
-                return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_USERS), user: null });
+                return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_GET_USERS), users: null });
             } 
 
             return res.status(200).json({ success: true, message: null, total: total, count: usersDB.length, users: usersDB });

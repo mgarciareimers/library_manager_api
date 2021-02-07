@@ -25,7 +25,7 @@ const signUp = (req, res) => {
     const user = new User({
         name: body.name, 
         surname: body.surname,  
-        email: body.email, 
+        email: body.email.toLowerCase(), 
         hashedPassword: bcrypt.hashSync(body.password, constants.numbers.HASH_SALT_OR_ROUNDS), 
         role: constants.strings.ROLE_USER, 
         language: languageCode,

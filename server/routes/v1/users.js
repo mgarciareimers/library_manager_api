@@ -26,7 +26,7 @@ app.get('/api/v1/users', verifyToken, (req, res) => usersService.getUsers(req, r
 app.get('/api/v1/verifyaccount/:verificationToken/:language', (req, res) => usersService.verifyAccount(req, res));
 
 // DELETE requests.
+app.delete('/api/v1/users/suspend/:id', verifyToken, (req, res) => usersService.suspendAccountById(req, res));
 app.delete('/api/v1/users/:id', [ verifyToken, verifyAdminRole ], (req, res) => usersService.deleteUserById(req, res));
-app.delete('/api/v1/users/suspendaccount/:id', verifyToken, (req, res) => usersService.suspendAccountById(req, res));
 
 module.exports = app;

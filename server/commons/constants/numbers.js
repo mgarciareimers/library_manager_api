@@ -5,7 +5,8 @@
 * Description: Number constants.
 */
 module.exports = {
-    DEFAULT_GET_USERS_LIMIT: 10,
+    DEFAULT_GET_AUTHORS_LIMIT: 25,
+    DEFAULT_GET_USERS_LIMIT: 25,
     GET_DOCUMENT_FIRST_PAGE: 1,
     HASH_SALT_OR_ROUNDS: 10,
     PASSWORD_MIN_LENGTH: 8,

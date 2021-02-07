@@ -30,7 +30,7 @@ const googleSignIn = async (req, res) => {
     }
 
     // Check if user exists in database.
-    const findPromise = await new Promise(resolve => User.findOne({ email: googleUser.email }, (error, userDB) => resolve({ error: error, userDB: userDB })));
+    const findPromise = await new Promise(resolve => User.findOne({ email: googleUser.email.toLowerCase() }, (error, userDB) => resolve({ error: error, userDB: userDB })));
 
     if (findPromise.error !== undefined && findPromise.error !== null) {
         utils.logError(findPromise.error);
@@ -54,7 +54,7 @@ const googleSignIn = async (req, res) => {
     const user = new User({
         name: googleUser.name, 
         surname: googleUser.surname, 
-        email: googleUser.email, 
+        email: googleUser.email.toLowerCase(), 
         hashedPassword: bcrypt.hashSync(utils.generateRandomString(constants.numbers.RANDOM_PASSWORD_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS), 
         image: googleUser.image,
         language: languageCode, 
