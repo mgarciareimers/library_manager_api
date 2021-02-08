@@ -79,4 +79,4 @@ userSchema.methods.toJSON = function() {
 // Add unique validation.
 userSchema.plugin(uniqueValidator, { message: 'user_{PATH}_exists' });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model(constants.models.USER, userSchema);

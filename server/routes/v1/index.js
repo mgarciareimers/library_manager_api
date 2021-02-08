@@ -10,6 +10,7 @@ const app = express();
 
 app.use(require('./auth'));
 app.use(require('./authors'));
+app.use(require('./books'));
 app.use(require('./users'));
 
 module.exports = app;

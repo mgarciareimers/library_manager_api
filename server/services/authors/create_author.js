@@ -26,7 +26,7 @@ const createAuthor = (req, res) => {
         if (error) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_CREATE_AUTHOR : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
-            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_CREATE_AUTHOR ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), user: null });
+            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_CREATE_AUTHOR ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), author: null });
         } 
 
         return res.status(201).json({ success: true, message: language.getValue(languageCode, constants.stringCodes.SUCCESS_CREATE_AUTHOR), author: authorDB });

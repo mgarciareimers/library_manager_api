@@ -30,6 +30,7 @@ const createUser = (req, res) => {
         email: body.email.toLowerCase(), 
         hashedPassword: bcrypt.hashSync(password, constants.numbers.HASH_SALT_OR_ROUNDS), 
         role: body.role,
+        image: null,
         language: languageCode, 
         google: false, 
         verificationToken: bcrypt.hashSync(body.email + utils.generateRandomString(constants.numbers.RANDOM_VERIFICATION_TOKEN_LENGTH), constants.numbers.HASH_SALT_OR_ROUNDS).replace(constants.strings.SLASH, constants.strings.EMPTY_STRING),
