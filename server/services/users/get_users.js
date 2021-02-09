@@ -20,7 +20,7 @@ const getUsers = async (req, res) => {
 
     const filterObject = { 
         email: new RegExp(email === undefined || email === null ? constants.strings.EMPTY_STRING : email, 'i'), 
-        state: new RegExp(state === undefined || state === null ? constants.strings.EMPTY_STRING : state, 'i'), 
+        state: new RegExp(req.user.role !== constants.strings.ROLE_ADMIN ? constants.strings.STATE_OK : (state === undefined || state === null ? constants.strings.EMPTY_STRING : state), 'i'), 
     }; 
 
     // Get list of users.

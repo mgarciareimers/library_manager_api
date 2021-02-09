@@ -1,5 +1,5 @@
 /**
-* book: mgarciareimers
+* Author: mgarciareimers
 * Date: 09/02/2021
 * 
 * Description: Method that suspends a book by deleting it 'logically' (change state to 'deleted').

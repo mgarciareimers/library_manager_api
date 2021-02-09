@@ -1,5 +1,5 @@
 /**
-* book: mgarciareimers
+* Author: mgarciareimers
 * Date: 08/02/2021
 * 
 * Description: Method that gets a book by its id.

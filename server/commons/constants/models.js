@@ -11,6 +11,7 @@ module.exports = {
     BOOK_CATEGORY : 'BookCategory',
     BOOK_FILE : 'BookFile',
     CATEGORY : 'Category',
+    IDENTIFIER : 'identifier',
     NAME : 'name',
     TITLE : 'title',
     USER : 'User',
