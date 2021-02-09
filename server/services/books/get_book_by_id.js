@@ -16,7 +16,7 @@ const getBookById = async (req, res) => {
     const languageCode = req.headers.language;
     
     // Check if book exists in database.
-    Book.findById(id, (error, bookDB) => {
+    Book.findById(id).populate(constants.models.AUTHOR.toLowerCase()).exec((error, bookDB) => {
         if (error !== undefined && error !== null) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_GET_BOOK_BY_ID : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
@@ -26,7 +26,7 @@ const getBookById = async (req, res) => {
         }
 
         return res.status(200).json({ success: true, message: null, book: bookDB });
-    })
+    });
 }
 
 module.exports = getBookById;

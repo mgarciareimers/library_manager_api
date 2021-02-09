@@ -19,7 +19,7 @@ const bookSchema = new Schema({
     },
     subtitle: {
         type: String,
-        default: null,
+        default: constants.strings.EMPTY_STRING,
     },
     originalTitle: {
         type: String,
@@ -27,7 +27,7 @@ const bookSchema = new Schema({
     },
     originalSubtitle: {
         type: String,
-        default: null,
+        default: constants.strings.EMPTY_STRING,
     },
     author: {
         type: Schema.Types.ObjectId,

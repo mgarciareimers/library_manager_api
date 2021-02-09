@@ -35,6 +35,7 @@ module.exports = {
     GENERIC_ERROR_CREATE_AUTHOR: 'generic_error_create_author',
     GENERIC_ERROR_CREATE_BOOK: 'generic_error_create_book',
     GENERIC_ERROR_DELETE_AUTHOR_BY_ID: 'generic_error_delete_author_by_id',
+    GENERIC_ERROR_DELETE_BOOK_BY_ID: 'generic_error_delete_book_by_id',
     GENERIC_ERROR_DELETE_USER_BY_ID: 'generic_error_delete_user_by_id',
     GENERIC_ERROR_FIND_AUTHOR: 'generic_error_find_author',
     GENERIC_ERROR_FIND_BOOK: 'generic_error_find_book',

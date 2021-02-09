@@ -9,6 +9,8 @@ const utils = require('../../commons/utils');
 const constants = require('../../commons/constants');
 const language = require('../../language');
 
+const mongoose = require('mongoose');
+
 const Book = require('../../models/book');
 
 const createBook = async (req, res) => {
@@ -17,14 +19,14 @@ const createBook = async (req, res) => {
 
     // Check if book exists in database.
     const filterObject = {
-        title: body.title === undefined || body.title === null ? null : new RegExp(body.title, 'i'),
-        subtitle: body.subtitle === undefined || body.subtitle === null ? null : new RegExp(body.subtitle, 'i'),
-        originalTitle: body.originalTitle === undefined || body.originalTitle === null ? null : new RegExp(body.originalTitle, 'i'), 
-        originalSubtitle: body.originalSubtitle === undefined || body.originalSubtitle === null ? null : new RegExp(body.originalSubtitle, 'i'),
-        author: body.originalSubtitle === undefined || body.originalSubtitle === null ? null : new RegExp(body.originalSubtitle, 'i'),
+        title: new RegExp(body.title === undefined || body.title === null ? constants.strings.EMPTY_STRING : `^${ body.title }$`, 'i'),
+        subtitle: new RegExp(body.subtitle === undefined || body.subtitle === null ? constants.strings.EMPTY_STRING : `^${ body.subtitle }$`, 'i'),
+        originalTitle: new RegExp(body.originalTitle === undefined || body.originalTitle === null ? constants.strings.EMPTY_STRING : `^${ body.originalTitle }$`, 'i'), 
+        originalSubtitle: new RegExp(body.originalSubtitle === undefined || body.originalSubtitle === null ? constants.strings.EMPTY_STRING : `^${ body.originalSubtitle }$`, 'i'),
+        author: body.author === undefined || body.author === null ? null : mongoose.Types.ObjectId(body.author),
         publicationYear: body.publicationYear, 
         editionNumber: body.editionNumber, 
-        language: body.language === undefined || body.language === null ? language.ES : new RegExp(body.language, 'i'),
+        language: body.language === undefined || body.language === null ? language.ES : new RegExp(`^${ body.language }$`, 'i'),
     };
 
     const findPromise = await new Promise(resolve => Book.findOne(filterObject, (error, bookDB) => resolve({ error: error, bookDB: bookDB })));

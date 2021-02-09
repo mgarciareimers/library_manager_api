@@ -20,6 +20,10 @@ const authorSchema = new Schema({
         type: String,
         required: [true, constants.errorCodes.AUTHOR_SURNAME_REQUIRED],
     },
+    completeName: {
+        type: String,
+        default: constants.strings.EMPTY_STRING,
+    },
     birthdate: {
         type: String,
         required: [true, constants.errorCodes.AUTHOR_BIRTHDATE_REQUIRED],

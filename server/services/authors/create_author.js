@@ -17,7 +17,8 @@ const createAuthor = (req, res) => {
     
     const author = new Author({
         name: body.name, 
-        surname: body.surname,  
+        surname: body.surname,
+        completeName: `${ body.name } ${ body.surname }`,  
         birthdate: body.birthdate,  
         state: constants.strings.STATE_OK, 
     });

@@ -19,7 +19,7 @@ const deleteAuthorById = async (req, res) => {
         if (error !== undefined && error !== null) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_DELETE_AUTHOR_BY_ID : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
-            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_DELETE_USER_BY_ID ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), author: null });
+            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_DELETE_AUTHOR_BY_ID ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode), author: null });
         } else if (authorDB === undefined || authorDB === null) {
             return res.status(404).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.AUTHOR_NOT_FOUND), author: null });
         }

@@ -28,6 +28,7 @@ const updateAuthor = async (req, res) => {
     }
 
     // Update author.
+    body.completeName = `${ body.name === undefined || body.name === null ? findPromise.authorDB.name : body.name } ${ body.surname === undefined || body.surname === null ? findPromise.authorDB.surname : body.surname }`;
     const updatePromise = await new Promise(resolve => Author.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (error, authorDB) => resolve({ error: error, authorDB: authorDB })))
 
     if (updatePromise.error !== undefined && updatePromise.error !== null) {
