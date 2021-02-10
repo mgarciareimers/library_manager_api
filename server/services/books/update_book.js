@@ -32,7 +32,7 @@ const updateBook = async (req, res) => {
         subtitle: body.subtitle === undefined || body.subtitle === null ? findOriginalBookPromise.bookDB.subtitle : new RegExp(body.subtitle, 'i'),
         originalTitle: body.originalTitle === undefined || body.originalTitle === null ? findOriginalBookPromise.bookDB.originalTitle : new RegExp(body.originalTitle, 'i'), 
         originalSubtitle: body.originalSubtitle === undefined || body.originalSubtitle === null ? findOriginalBookPromise.bookDB.originalSubtitle : new RegExp(body.originalSubtitle, 'i'),
-        author: body.author === undefined || body.author === null ? findOriginalBookPromise.bookDB.author : body.author,
+        author: body.author === undefined || body.author === null || body.author.length <= 0 ? findOriginalBookPromise.bookDB.author : body.author,
         publicationYear: body.publicationYear === undefined || body.publicationYear === null ? findOriginalBookPromise.bookDB.publicationYear : body.publicationYear, 
         editionNumber: body.editionNumber === undefined || body.editionNumber === null ? findOriginalBookPromise.bookDB.editionNumber : body.editionNumber, 
         language: body.language === undefined || body.language === null ? findOriginalBookPromise.bookDB.language : new RegExp(body.language, 'i'),

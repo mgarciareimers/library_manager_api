@@ -9,7 +9,6 @@ module.exports = {
     BOOK : 'Book',
     BOOK_BORROW : 'BookBorrow',
     BOOK_CATEGORY : 'BookCategory',
-    BOOK_FILE : 'BookFile',
     CATEGORY : 'Category',
     IDENTIFIER : 'identifier',
     NAME : 'name',

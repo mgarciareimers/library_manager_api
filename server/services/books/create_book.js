@@ -23,7 +23,7 @@ const createBook = async (req, res) => {
         subtitle: new RegExp(body.subtitle === undefined || body.subtitle === null ? constants.strings.EMPTY_STRING : `^${ body.subtitle }$`, 'i'),
         originalTitle: new RegExp(body.originalTitle === undefined || body.originalTitle === null ? constants.strings.EMPTY_STRING : `^${ body.originalTitle }$`, 'i'), 
         originalSubtitle: new RegExp(body.originalSubtitle === undefined || body.originalSubtitle === null ? constants.strings.EMPTY_STRING : `^${ body.originalSubtitle }$`, 'i'),
-        author: body.author === undefined || body.author === null ? null : mongoose.Types.ObjectId(body.author),
+        author: body.author === undefined || body.author === null || body.author.length <= 0 ? null : mongoose.Types.ObjectId(body.author),
         publicationYear: body.publicationYear, 
         editionNumber: body.editionNumber, 
         language: body.language === undefined || body.language === null ? language.ES : new RegExp(`^${ body.language }$`, 'i'),
