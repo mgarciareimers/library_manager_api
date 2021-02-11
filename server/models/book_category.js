@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const constants = require('../commons/constants');
-const language = require('../language');
 
 // Define schema.
 const bookCategorySchema = new Schema({

@@ -11,6 +11,7 @@ const app = express();
 app.use(require('./auth'));
 app.use(require('./authors'));
 app.use(require('./books'));
+app.use(require('./book_borrows'));
 app.use(require('./book_categories'));
 app.use(require('./categories'));
 app.use(require('./users'));
