@@ -18,6 +18,7 @@ module.exports = {
     SUCCESS_CREATE_BOOK_CATEGORY: 'success_create_book_category',
     SUCCESS_CREATE_CATEGORY: 'success_create_category',
     SUCCESS_DELETE_AUTHOR_BY_ID: 'success_delete_author_by_id',
+    SUCCESS_DELETE_BOOK_BORROW_BY_ID: 'success_delete_book_borrow_by_id',
     SUCCESS_DELETE_BOOK_BY_ID: 'success_delete_book_by_id',
     SUCCESS_DELETE_BOOK_CATEGORY_BY_ID: 'success_delete_book_category_by_id',
     SUCCESS_DELETE_CATEGORY_BY_ID: 'success_delete_category_by_id',

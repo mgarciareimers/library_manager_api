@@ -17,13 +17,15 @@ const updateBookBorrowPage = async (req, res) => {
     const languageCode = req.headers.language;
     
     // Check if selected book borrow exists in database.
-    const findPromise = await new Promise(resolve => BookBorrow.findById(id, (error, bookBorrowDB) => resolve({ error: error, bookBorrowDB: bookBorrowDB })));
+    const findPromise = await new Promise(resolve => BookBorrow.findById(id).populate(constants.models.USER.toLowerCase()).exec((error, bookBorrowDB) => resolve({ error: error, bookBorrowDB: bookBorrowDB })));
 
     if (findPromise.error !== undefined && findPromise.error !== null) {
         utils.logError(findPromise.error);
         return res.status(500).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.GENERIC_ERROR_FIND_BOOK_BORROW), bookBorrow: null });
     } else if (findPromise.bookBorrowDB === null) {
         return res.status(404).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.BOOK_BORROW_NOT_FOUND), bookBorrow: null });
+    } else if (findPromise.bookBorrowDB.user._id.toString() !== req.user._id.toString()) {
+        return res.status(401).json({ success: false, message: language.getValue(languageCode, constants.errorCodes.USER_NOT_AUTHORIZED) });
     }
 
     // Update book borrow.
