@@ -118,6 +118,7 @@
     "success_upload_user_image" : "Se ha cargado la imagen del perfil con éxito.",
     
     "user_email_exists" : "Ya existe un usuario con este email.",
+    "user_email_not_valid" : "El formato del email no es válido.",
     "user_email_required" : "Es necesario añadir el email.",
     "user_google_format_not_valid" : "El formato del campo google del usuario no es válido.",
     "user_image_not_valid" : "Es necesario una imagen en formato .png o .jpg.",

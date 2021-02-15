@@ -95,6 +95,7 @@ module.exports = {
     OLD_PASSWORD_NOT_VALID: 'old_password_not_valid',
 
     USER_EMAIL_EXISTS: 'user_email_exists',
+    USER_EMAIL_NOT_VALID: 'user_email_not_valid',
     USER_EMAIL_REQUIRED: 'user_email_required',
     USER_GOOGLE_FORMAT_NOT_VALID: 'user_google_format_not_valid',
     USER_IMAGE_NOT_VALID: 'user_image_not_valid',

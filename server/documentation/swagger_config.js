@@ -12,22 +12,7 @@ const swaggerUI = require('swagger-ui-express');
 const app = express();
 
 const options = {
-    swaggerDefinition: {
-        openapi: '3.0.0',
-        info: {
-            version: '1.0.0',
-            title: 'Library Manager API',
-            description: 'Basic API for library management.',
-            contact: {
-                name: 'Miguel García Reimers',
-                email: 'mgarciareimers@gmail.com',
-                url: 'https://www.linkedin.com/in/miguelgarciareimers'
-            },
-            servers: [
-                'http://localhost:3000',
-            ]
-        },
-    },
+    swaggerDefinition: require('./openapi.json'),
     basePath: '/',
     apis: ['../routes/index.js'],
 };

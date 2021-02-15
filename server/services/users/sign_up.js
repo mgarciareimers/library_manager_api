@@ -38,7 +38,7 @@ const signUp = (req, res) => {
         if (error) {
             const errorCode = error.errors === undefined || error.errors === null || error.errors[Object.keys(error.errors)[0]].properties === undefined || error.errors[Object.keys(error.errors)[0]].properties === null ? constants.errorCodes.GENERIC_ERROR_CREATE_ACCOUNT : error.errors[Object.keys(error.errors)[0]].properties.message;
             utils.logError(errorCode);
-            return res.status(errorCode === GENERIC_ERROR_CREATE_ACCOUNT ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
+            return res.status(errorCode === constants.errorCodes.GENERIC_ERROR_CREATE_ACCOUNT ? 500 : 400).json({ success: false, message: language.getValue(languageCode, errorCode) });
         } 
 
         // Send email.

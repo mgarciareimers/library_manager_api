@@ -23,4 +23,9 @@ module.exports = {
     ONE_SPACE: ' ',
     SLASH: '/',
     ZERO : '0',
+
+    EMAIL: 'email',
+    NAME: 'name',
+    SURNAME: 'surname',
+    PASSWORD: 'password',
 }
