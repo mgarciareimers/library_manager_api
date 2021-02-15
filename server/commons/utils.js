@@ -44,8 +44,14 @@ const generateRandomString = (length) => {
     return string;
 }
 
+// Method that gets the file extension by filename.
+const getExtensionByFilename = (filename) => {
+    return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
+}
+
 module.exports = {
     padString,
     logError,
     generateRandomString,
+    getExtensionByFilename,
 }

@@ -41,6 +41,15 @@ const verifyToken = (req, res, next) => {
     });
 }
 
+// Method that verifies the token sent as query string.
+const verifyTokenQuery = (req, res, next) => {
+    const { token } = req.query;
+    
+    req.headers.token = token;
+
+    verifyToken(req, res, next);
+}
+
 // Method that verifies if the user is an admin.
 const verifyAdminRole = (req, res, next) => {
     const languageCode = req.headers.language;
@@ -55,5 +64,6 @@ const verifyAdminRole = (req, res, next) => {
 
 module.exports = {
     verifyToken,
+    verifyTokenQuery,
     verifyAdminRole,
 }

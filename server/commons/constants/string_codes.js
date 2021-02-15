@@ -35,6 +35,8 @@ module.exports = {
     SUCCESS_UPDATE_CATEGORY: 'success_update_category',
     SUCCESS_UPDATE_PASSWORD: 'success_update_password',
     SUCCESS_UPDATE_USER: 'success_update_user',
+    SUCCESS_UPLOAD_BOOK_FILE: 'success_upload_book_file',
+    SUCCESS_UPLOAD_USER_IMAGE: 'success_upload_user_image',
 
     WELCOME_SUBJECT: 'welcome_subject',
 }

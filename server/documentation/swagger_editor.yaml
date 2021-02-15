@@ -1,0 +1,195 @@
+openapi: 3.0.0
+info:
+  title: Library Manager API
+  description: Basic API for library management.
+  version: 1.0.0
+  contact:
+    name: Miguel García Reimers
+    email: mgarciareimers@gmail.com
+    url: https://www.linkedin.com/in/miguelgarciareimers
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /v1/googlesignin:
+    post:
+      deprecated: false
+      tags:
+        - Auth
+      summary: Logs user in via google token.
+      parameters:
+        - in: header
+          name: language
+          description: Client language.
+          example: es
+          schema:
+            type: string
+          required: false
+        - in: body
+          name: body
+          description: Content of the request body.
+          schema:
+            type: object
+            required:
+              - token
+            properties:
+              token:
+                type: string
+      responses:
+        '200':
+          description: User successfullly created or user successfully logged in.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '400':
+          description: User created via credentials instead of Google account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '401':
+          description: Account not verified or account deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '403':
+          description: Google account is not valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '500':
+          description: An unexpect error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+  /v1/login:
+    post:
+      deprecated: false
+      tags:
+        - Auth
+      summary: Logs user in with via credentials.
+      parameters:
+        - in: header
+          name: language
+          description: Client language.
+          example: es
+          schema:
+            type: string
+          required: false
+        - in: body
+          name: body
+          description: Content of the request body.
+          schema:
+            type: object
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        '200':
+          description: User successfullly logged in.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '400':
+          description: User invalid credentials.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '401':
+          description: Account not verified or account deleted or account created via Google token.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '403':
+          description: Google account is not valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '500':
+          description: An unexpect error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  token:
+                    type: string

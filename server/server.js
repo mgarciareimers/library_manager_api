@@ -8,13 +8,22 @@
 require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 const utils = require('./commons/utils');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
  
+// Documentation config.
+app.use('/documentation', require('./documentation/swagger_config'));
+
+// File upload.
+app.use(fileUpload({ useTempFiles : true, tempFileDir : '/tmp/', createParentPath: true }));
+
 // Routes config.
 app.use(require('./routes'));
 
