@@ -43,9 +43,10 @@ const verifyToken = (req, res, next) => {
 
 // Method that verifies the token sent as query string.
 const verifyTokenQuery = (req, res, next) => {
-    const { token } = req.query;
+    const { token, language } = req.query;
     
     req.headers.token = token;
+    req.headers.language = language;
 
     verifyToken(req, res, next);
 }
